@@ -23,7 +23,7 @@ do {
             venta_stock(id2, cant_venta);
             break;
         case "4":
-            view_promedio(ventas,acum);
+            view_promedio(arrayProductos,acum);
             break;
         case "5":
             view_stock_none();
@@ -68,18 +68,18 @@ function venta_stock() {
             }
         });
         if (find)
-            return addventa(id, cant_venta, newStock, precio_venta);
+            return addventa(id, cant_venta, newStock, arrayProductos[i].precio_venta);
         else
             return console.log('Nose encontro el producto');
     }
 }
 
-function view_promedio(ventas, acum) {
-
-    for (let i in ventas) {
-        acum = acum + ventas[i].precio_venta;
+function view_promedio(list, acum) {
+    c
+    for (let i in list) {
+        acum = acum + list[i].precio_venta;
     }
-    return console.log(acum / ventas.length);
+    return console.log(acum / list.length);
 }
 
 
@@ -101,4 +101,5 @@ function Stock0() {
 
 function addventa(codigo, ventas_realizada, ventas_restantes, precio_venta) {
     ventas.push({ codigo, ventas_realizada, ventas_restantes, precio_venta })
+    
 }
